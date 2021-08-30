@@ -1,4 +1,4 @@
-service: aws-node-project
+service: rafay-serverless-apollo
 
 frameworkVersion: '2'
 
