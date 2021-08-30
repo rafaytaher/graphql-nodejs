@@ -1,4 +1,4 @@
-const {ApolloServer, gql} = require('apollo-server');
+const {ApolloServer, gql} = require('apollo-server-lambda');
 
 const fs = require('fs');
 
@@ -8,6 +8,4 @@ const typeDefs = gql(fs.readFileSync('./graphql/typeDefs.graphql', {encoding: 'u
 
 const server = new ApolloServer({typeDefs, resolvers});
 
-server.listen(4000).then(({url}) => {
-    console.log(`Server ready at: ${url} `);
-});
+exports.action = server.createHandler();

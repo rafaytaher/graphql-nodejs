@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "serverless-offline": "^8.0.0"
   },
   "dependencies": {
     "apollo-server": "^3.3.0",
+    "apollo-server-lambda": "^3.3.0",
     "graphql": "^15.5.1",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
