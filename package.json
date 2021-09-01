@@ -2,19 +2,24 @@
   "name": "gql-project",
   "version": "1.0.0",
   "description": "GraphQL, Apollo Server, NodeJS, sequelize, sequelize-auto",
-  "main": "server.js",
+  "main": "graphql.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "offline": "serverless offline start",
+    "deploy": "sls deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "aws-lambda": "^1.0.6",
     "nodemon": "^2.0.12",
+    "serverless-bundle": "^5.0.0",
     "serverless-offline": "^8.0.0"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
-    "apollo-server": "^3.3.0",
     "apollo-server-lambda": "^3.3.0",
     "graphql": "^15.5.1",
     "pg": "^8.7.1",

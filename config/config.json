@@ -4,7 +4,8 @@
     "password": "admin123",
     "database": "gql_project",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectModule": "pg" 
   },
   "test": {
     "username": "root",
