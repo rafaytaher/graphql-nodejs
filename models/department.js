@@ -1,11 +1,15 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('department', {
+import _sequelize from 'sequelize';
+const { Model, Sequelize } = _sequelize;
+
+export default class department extends Model {
+  static init(sequelize, DataTypes) {
+  super.init({
     id: {
+      autoIncrement: true,
+      autoIncrementIdentity: true,
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      primaryKey: true
     },
     name: {
       type: DataTypes.TEXT,
@@ -26,4 +30,6 @@ module.exports = function(sequelize, DataTypes) {
       },
     ]
   });
-};
+  return department;
+  }
+}

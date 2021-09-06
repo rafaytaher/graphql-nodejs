@@ -28,12 +28,17 @@ custom:
       - pg-native
     linting: false
     disableForkTsChecker: true
-    #sourcemaps: false
+    sourcemaps: true
     # tsConfig: 'tsconfig.json'
+    # includeModules: false
+    esbuild: true
+    #includeModules: false # add excluded modules to the generated zip package
+    # aliases: 
+    #   - "models": models
 
 functions:
   graphql:
-    handler: graphql.action
+    handler: graphql.graphqlHandler
     events: 
       - http:
           path: api/v1/employee

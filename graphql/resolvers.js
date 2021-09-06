@@ -1,11 +1,25 @@
-const { employee, department, designation } = require('../models');
+import initModels from '../models/init-models';
+const Sequelize = require('sequelize');
+const env = process.env.NODE_ENV || 'development';
+
+const config = require('./../config/config.json')[env];
+
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
+
+const models = initModels(sequelize);
 
 const Query = {
+    
     getEmployeeDetail: async () => {
 
         try {
 
-            const employees = await employee.findAll();
+            const employees = await models.employee.findAll();
             return employees;
 
         } catch (err) {
@@ -105,4 +119,4 @@ const Employee = {
     designation: (emp) => designation.findByPk(emp.designation_id),
 };
 
-exports = { Query, Mutation, Employee };
+export default { Query, Mutation, Employee };
